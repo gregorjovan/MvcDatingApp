@@ -1,0 +1,147 @@
+﻿@using DatingApp.Models.Repository.User.CompleteProfiles
+@using DatingApp.Models.Search
+@using DatingApp.Resources.Labels
+@using DatingApp.Models.Infrastructure
+@using DatingApp.Models.Repository.Properties
+@using System.Text;
+@{
+    ViewBag.Title = "Search Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Results</h2>
+
+@{
+
+    HiPerfTimer t = new HiPerfTimer();
+    t.Start();
+    int[] x = Model;
+
+    t.Stop();
+
+}
+
+<table cellspacing="10">
+    <tr>
+        <td>
+            Search speed:@ViewData["speed"]
+            <br />
+            <br />
+            Counter:@SearchEngine.counter.ToString()
+            Timer:@SearchCacheEngine.timer
+        </td>
+    </tr>
+    <tr>
+
+        <td valign="top">
+            
+
+        @for (int i = 0; i < x.Count(); i++)
+        {
+            if (HttpContext.Current.Cache[x[i].ToString()] == null)
+            {
+                UserProperties curr = new UserProperties();
+                curr.Get(x[i]);
+                curr.InsertIntoCache();
+            }
+
+            UserProperties px = (UserProperties)HttpContext.Current.Cache[x[i].ToString()];
+            <table width="700px" cellpadding="3px" style="font-size:12px">
+                <tr>
+                    <td style="width:120px; background-color:#666699"></td>
+
+                    <td>
+                        <table width="580px">
+                            <tr>
+                                <td valign="top" colspan="2">
+                                    @Html.RouteLink(px.Username + "a", "users", new { username = (px.Username + "a") })
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2">Age:@px.Age</td>
+                            </tr>
+                            <tr>
+                                <td>@Properties.Sex</td>
+                                <td>@PropertiesDictionary.Sex[1][px.Sex]  išče @PropertiesDictionary.SeekSex[1][px.SeekSex] </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">@px.Introduction </td>
+                            </tr>
+                            <tr>
+                                <td>@Properties.Eyes</td>
+                                <td>@PropertiesDictionary.Properties[1][px.Eyes]</td>
+                            </tr>
+                            <tr>
+                                <td>@Properties.Hobbies</td>
+                                <td>
+                                    @{for (int ii = 0; ii < px.Hobbies.Count; ii++)
+                                        {
+                                            Response.Write(PropertiesDictionary.Properties[1][px.Hobbies[ii]]);
+                                        } }
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr />
+                                        }
+            (t.Duration * 1000000).ToString();
+            
+        </td>
+        </tr>
+    
+    
+        <!--pager-->
+        <tr>
+        <td>
+            @{
+
+                int p = Convert.ToInt32(Request.QueryString["page"]);
+
+                int maxpage = 0;
+                maxpage = 1;
+                /*
+                if (Math.IEEERemainder((int)ViewData["counter"], 5) == 0)
+                { maxpage = (int)ViewData["counter"] / 5; }
+                else
+                { maxpage = ((int)ViewData["counter"] / 5) + 1; }
+                */
+                if (maxpage > 41)
+                { maxpage = 41; }
+
+                StringBuilder sb = new StringBuilder();
+                foreach (string s in Request.QueryString)
+                {
+                    if (s != "page")
+                    {
+                        sb.Append(s);
+                        sb.Append("=");
+                        sb.Append(Request.QueryString[s]);
+                        sb.Append("&");
+                    }
+                }
+
+                sb.Append("page=");
+                string l = sb.ToString();
+
+                for (int i = 1; i <= maxpage; i++)
+                {
+                    if (i == p)
+                    {
+                        Response.Write(i);
+                        Response.Write("&nbsp;");
+                    }
+                    else
+                    {
+
+                        <a href="results?l@i.ToString()">@i.ToString()</a>
+                    }
+                } }
+        </td>
+    </tr>
+    <!--eopager-->
+
+</table>

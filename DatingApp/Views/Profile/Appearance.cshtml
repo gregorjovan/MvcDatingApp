@@ -1,0 +1,79 @@
+﻿@using DatingApp.Resources.Labels
+@using DatingApp.Models.Extensions.HtmlExtensions
+@model DatingApp.Models.User.Profile.Properties.Appearance
+
+
+@{
+    ViewBag.Title = "Edit Your Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-3">
+        @{Html.RenderPartial("navigation");}
+    </div>
+    <div class="col-lg-9">
+        <h2 class="alert-success alert">Edit Your Appearance</h2>
+        @{Html.BeginForm("Appearance", "Profile", FormMethod.Post, new { @class = "form-horizontal" }); }
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@MvcHtmlString.Create(@Properties.Eyes)@Html.ValidationMessage("eyes", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.RadioButtonListBtstrp("eyes", 2, Model.Eyes, false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Hair@Html.ValidationMessage("hair", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.RadioButtonListBtstrp("hair", 2, Model.Hair, false))
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Figure@Html.ValidationMessage("figure", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.RadioButtonListBtstrp("figure", 2, Model.Figure, false))
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Height@Html.ValidationMessage("height", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.DropDownList("height", Model.Height, "", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Body@Html.ValidationMessage("body", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.DropDownList("body", Model.Body, "", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Bodyart@Html.ValidationMessage("bodyart", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.CheckBoxListBtstsr("bodyart", 2, Model.Bodyart))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Look@Html.ValidationMessage("look", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.DropDownList("look", Model.Look, "", false))
+            </div>
+        </div>
+
+        <div class="container"><input class="btn btn-block btn-success" type="submit" value="@Labels.Save" /></div>
+        <div class="container">@Html.ValidationSummary()</div>
+        @{Html.EndForm();}
+        </div></div>
+<script>
+    var d = document.getElementById("liEdit");
+    d.className += " active";
+    d = document.getElementById("editAppearance");
+    d.className += " active";
+</script>

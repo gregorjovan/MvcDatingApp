@@ -1,0 +1,60 @@
+﻿@using DatingApp.Resources.Labels
+@using DatingApp.Models.Extensions.HtmlExtensions
+@model DatingApp.Models.User.Profile.Properties.Interests
+
+
+@{
+    ViewBag.Title = "Edit Your Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="col-lg-3">
+        @{Html.RenderPartial("navigation");}
+    </div>
+    <div class="col-lg-9">
+        <h2 class="alert-success alert">Edit Your Interests</h2>
+        @{Html.BeginForm("Interests", "Profile", FormMethod.Post, new { @class = "form-horizontal" }); }
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@MvcHtmlString.Create(@Properties.FavoriteFreeTime)@Html.ValidationMessage("freetimefavorite", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.CheckBoxListBtstsr("freetimefavorite", 2, Model.FreeTimeFavorite))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Hobbies@Html.ValidationMessage("hobbies", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.CheckBoxListBtstsr("hobbies", 2, Model.Hobbies))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Sport@Html.ValidationMessage("sport", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.CheckBoxListBtstsr("sport", 2, Model.Sport))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Music@Html.ValidationMessage("music", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.CheckBoxListBtstsr("music", 2, Model.Music))
+            </div>
+        </div>
+
+        <div class="container"><input class="btn btn-block btn-success" type="submit" value="@Labels.Save" /></div>
+        <div class="container">@Html.ValidationSummary()</div>
+        @{Html.EndForm();}
+    </div>
+</div>
+
+<script>
+    var d = document.getElementById("liEdit");
+    d.className += " active";
+    d = document.getElementById("editInterests");
+    d.className += " active";
+</script>
+

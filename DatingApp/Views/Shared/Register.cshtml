@@ -1,0 +1,59 @@
+﻿@using DatingApp.Models.Extensions.HtmlExtensions
+@using DatingApp.Resources.Labels
+@model DatingApp.Models.User.Profile.Registration.UserRegistration
+
+
+
+    <p class="h4 alert font-weight-bold">@DatingApp.Resources.ViewsResources.Shared.Shared_Register.Title</p>
+
+    @{Html.BeginForm("Register", "registration", FormMethod.Post, new { @id = "frmRegistration", @class = "form-horizontal" }); }
+
+    <div class="form-group">
+        <label id="lblUsername" class="col-lg-4 control-label" for="txtUsername">@Properties.Username</label>
+        <div class="col-lg-8"><input type="text" name="username" id="txtUsername" class="form-control" value="@{if (Model != null) {Response.Write(Model.Username); }}" /></div>
+        @{Html.ValidationMessage("username", "*");}
+    </div>
+
+    <div class="form-group">
+        <label id="lblPassword" class="col-lg-4 control-label" for="txtPassword">@Properties.Password</label>
+        <div class="col-lg-8">
+            <input type="password" name="password" class="form-control has-warning" id="txtPassword" />
+        </div>
+        @{Html.ValidationMessage("password", "*");}
+    </div>
+    <div class="form-group">
+        <label id="lblSex" class="col-lg-4 control-label">@Properties.Sex</label>
+        <div class="col-lg-8">
+            @MvcHtmlString.Create(DatingHtml.RadioButtonListBtstrp("sex", 2, Model.Sex, false))
+        </div>
+        @{Html.ValidationMessage("sex", "");}
+    </div>
+
+    <div class="form-group">
+        <label id="lblBirthday" class="col-lg-4 control-label" for="ddlDay">@Properties.Birthday</label>
+        <div class="col-lg-8">
+            @MvcHtmlString.Create(DatingHtml.DropDownList("month", Model.Month, "", false))
+            @MvcHtmlString.Create(DatingHtml.DropDownList("day", Model.Day, "", false))
+            @MvcHtmlString.Create(DatingHtml.DropDownList("year", Model.Year, "", false))
+        </div>
+        @Html.ValidationMessage("birthday", "")
+    </div>
+
+    <div class="form-group">
+        <label id="lblCountry" class="col-lg-4 control-label" for="country">@Properties.Country</label>
+        <div class="col-lg-8">
+            @MvcHtmlString.Create(DatingHtml.DropDownList("country", Model.Country, "", false))
+        </div>
+        @{Html.ValidationMessage("country", "*"); }
+    </div>
+    <div class="form-group">
+        <label id="lblEmail" class="col-lg-4 control-label" for="txtEmail">@Properties.Email </label>
+        <div class="col-lg-8">
+            <input type="text" name="email" class="form-control" id="txtEmail" value="@{if (Model != null) { Response.Write(Model.Email); }}" />
+        </div>
+        @Html.ValidationMessage("email", "")
+    </div>
+    <div class="container"><input class="btn btn-block btn-success" type="submit" value="@Labels.SubmitRegistration" /></div>
+    
+    <div class="container"> @{Html.ValidationSummary(); }</div>
+    @{Html.EndForm();}

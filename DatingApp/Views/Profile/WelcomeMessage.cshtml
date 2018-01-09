@@ -1,0 +1,37 @@
+﻿@using System.Web.Mvc
+@using DatingApp.Resources.Labels
+@model DatingApp.Models.User.Profile.Properties.WelcomeMessage
+
+@{
+    ViewBag.Title = "Edit Your Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-3">
+        @{Html.RenderPartial("navigation");}
+    </div>
+    <div class="col-lg-9">
+        <h2 class="alert-success alert">Edit Your Short Intro</h2>
+        @{Html.BeginForm("WelcomeMessage", "Profile", FormMethod.Post, new { @class = "form-horizontal" }); }
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@MvcHtmlString.Create(@Properties.Introduction)@Html.ValidationMessage("introduction", "*")</label>
+            <div class="col-lg-9">
+                @Html.TextArea("introduction", Model.Introduction, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="container"><input class="btn btn-block btn-success" type="submit" value="@Labels.Save" /></div>
+        <div class="container">@Html.ValidationSummary()</div>
+        @{Html.EndForm();}
+    </div>
+</div>
+
+<script>
+    var d = document.getElementById("liEdit");
+    d.className += " active";
+    d = document.getElementById("editSd");
+    d.className += " active";
+</script>
+

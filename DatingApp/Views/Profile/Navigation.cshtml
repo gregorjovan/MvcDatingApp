@@ -1,0 +1,17 @@
+﻿@using DatingApp.Resources.Labels
+
+<div class="container">
+    <ul class="nav nav-pills nav-stacked">
+        <li id="editBasic">@Html.ActionLink(Labels.Basic, "basic")</li>
+        <li id="editLifestyle">@Html.ActionLink(Labels.Lifestyle, "lifestyle")</li>
+        <li id="editInterests">@Html.ActionLink(Labels.Interests, "interests")</li>
+        <li id="editAppearance">@Html.ActionLink(Labels.Appearance, "appearance")</li>
+        <li id="editValues">@Html.ActionLink(Labels.Values, "values")</li>
+    </ul>
+    <hr />
+    <ul class="nav nav-pills nav-stacked">
+        <li id="editSd">@Html.ActionLink(Labels.ShortDescription, "welcomemessage")</li>
+        <li id="editPd">@Html.ActionLink(Labels.PersonalDescriptions, "personal")</li>
+        <li id="editTm">@Html.ActionLink(Labels.TellMore, "tellmore")</li>
+    </ul>
+</div>

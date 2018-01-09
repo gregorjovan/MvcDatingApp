@@ -1,0 +1,65 @@
+﻿@using DatingApp.Resources.Labels
+@using DatingApp.Models.Extensions.HtmlExtensions
+@model DatingApp.Models.User.Profile.Properties.Lifestyle
+
+@{
+    ViewBag.Title = "Edit Your Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-3">
+        @{Html.RenderPartial("navigation");}
+    </div>
+    <div class="col-lg-9">
+        <h2 class="alert-success alert">Edit Your Lifestyle</h2>
+        @{Html.BeginForm("Lifestyle", "Profile", FormMethod.Post, new { @class = "form-horizontal" }); }
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@MvcHtmlString.Create(@Properties.FashionStyle)@Html.ValidationMessage("fashionstyle", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.CheckBoxListBtstsr("fashionstyle", 1, Model.FashionStyle))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Exercise@Html.ValidationMessage("exercise", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.RadioButtonListBtstrp("exercise", 2, Model.Exercise, false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@MvcHtmlString.Create(@Properties.Diet)@Html.ValidationMessage("diet", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.CheckBoxListBtstsr("diet", 2, Model.Diet))
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Smoking@Html.ValidationMessage("smoking", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("smoking", Model.Smoking, "", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-3 control-label">@Properties.Drinking@Html.ValidationMessage("drinking", "*")</label>
+            <div class="col-lg-9">
+                @MvcHtmlString.Create(@DatingHtml.RadioButtonListBtstrp("drinking", 2, Model.Drinking, false))
+            </div>
+        </div>
+
+        <div class="container"><input class="btn btn-block btn-success" type="submit" value="@Labels.Save" /></div>
+        <div class="container">@Html.ValidationSummary()</div>
+        @{Html.EndForm();}
+    </div>
+</div>
+<script>
+    var d = document.getElementById("liEdit");
+    d.className += " active";
+    d = document.getElementById("editLifestyle");
+    d.className += " active";
+</script>
+
+
+

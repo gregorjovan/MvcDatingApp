@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About me:</value>
+  </data>
+  <data name="AboutPartner" xml:space="preserve">
+    <value>About partner:</value>
+  </data>
+  <data name="Alcohol" xml:space="preserve">
+    <value>Alcohol drinks:</value>
+  </data>
+  <data name="Birthday" xml:space="preserve">
+    <value>Birthday:</value>
+  </data>
+  <data name="Body" xml:space="preserve">
+    <value>Best part of your body is:</value>
+  </data>
+  <data name="Bodyart" xml:space="preserve">
+    <value>Bodyart:</value>
+  </data>
+  <data name="Books" xml:space="preserve">
+    <value>Favorite books:</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country:</value>
+  </data>
+  <data name="Diet" xml:space="preserve">
+    <value>Your diet&lt;br/&gt;(choose all that apply)</value>
+  </data>
+  <data name="Drinking" xml:space="preserve">
+    <value>Drinking:</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>Smarts:</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="Ethnicity" xml:space="preserve">
+    <value>Ethnicity:</value>
+  </data>
+  <data name="Exercise" xml:space="preserve">
+    <value>How often do you exercise:</value>
+  </data>
+  <data name="Eyes" xml:space="preserve">
+    <value>Eyes:</value>
+  </data>
+  <data name="Fashion" xml:space="preserve">
+    <value>Fashion brands, designers:</value>
+  </data>
+  <data name="FashionStyle" xml:space="preserve">
+    <value>What is your favour fashion style:</value>
+  </data>
+  <data name="FavoriteFreeTime" xml:space="preserve">
+    <value>Best way to spend free time&lt;br/&gt;&lt;i&gt;(select all that apply)&lt;/i&gt;</value>
+  </data>
+  <data name="Figure" xml:space="preserve">
+    <value>Your Figure:</value>
+  </data>
+  <data name="Hair" xml:space="preserve">
+    <value>Hair color:</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Body height:</value>
+  </data>
+  <data name="Hobbies" xml:space="preserve">
+    <value>Hobbies:</value>
+  </data>
+  <data name="Interests" xml:space="preserve">
+    <value>Interests:</value>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>Short introduction &lt;br/&gt;
+(max 255 words):</value>
+  </data>
+  <data name="Kids" xml:space="preserve">
+    <value>How many kids do you have:</value>
+  </data>
+  <data name="KidsHave" xml:space="preserve">
+    <value>Do you have kids:</value>
+  </data>
+  <data name="KidsWant" xml:space="preserve">
+    <value>Do you want kids:</value>
+  </data>
+  <data name="Look" xml:space="preserve">
+    <value>Rate your appearance:</value>
+  </data>
+  <data name="Movies" xml:space="preserve">
+    <value>Favorite films:</value>
+  </data>
+  <data name="Music" xml:space="preserve">
+    <value>What music do you like:</value>
+  </data>
+  <data name="MusicStuff" xml:space="preserve">
+    <value>Favourite Music:</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="Pets" xml:space="preserve">
+    <value>You and pets:</value>
+  </data>
+  <data name="Profession" xml:space="preserve">
+    <value>Profession:</value>
+  </data>
+  <data name="Relationship" xml:space="preserve">
+    <value>Looking for:</value>
+  </data>
+  <data name="Religion" xml:space="preserve">
+    <value>Religion:</value>
+  </data>
+  <data name="Salary" xml:space="preserve">
+    <value>Salary:</value>
+  </data>
+  <data name="SeekSex" xml:space="preserve">
+    <value>I am looking for:</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>I am:</value>
+  </data>
+  <data name="Smoking" xml:space="preserve">
+    <value>Smoking:</value>
+  </data>
+  <data name="Sport" xml:space="preserve">
+    <value>What sport do you like:</value>
+  </data>
+  <data name="SportStuff" xml:space="preserve">
+    <value>Favourite Sports:</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Your status:</value>
+  </data>
+  <data name="StatusPartner" xml:space="preserve">
+    <value>Status of searched partner:</value>
+  </data>
+  <data name="TVProgrammes" xml:space="preserve">
+    <value>Favorite TV Programmes</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+</root>

@@ -1,0 +1,58 @@
+﻿@using DatingApp.Resources.Labels
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - People And Fun</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/">People And Fun</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li id="liHome"><a href="~/Home/">Home</a></li>
+                    <li id="liSearch">@Html.ActionLink(Labels.Search, "Basic", "Search")</li>
+                    <li><a href="#">Inbox</a></li>
+                    <li id="liEdit">@Html.ActionLink(Labels.EditProfile, "Basic", "profile")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="container-fluid text-center">
+            <div class="container">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#">Slovenija</a></li>
+                    <li><a href="#">Croatia</a></li>
+                    <li><a href="#">Serbia</a></li>
+                    <li><a href="#">Bosnia and Hercegovina</a></li>
+                    <li><a href="#">Hungary</a></li>                   
+                </ul>
+            </div> 
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

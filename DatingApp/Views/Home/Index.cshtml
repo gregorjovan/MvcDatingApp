@@ -1,0 +1,41 @@
+﻿@model DatingApp.Models.User.Profile.Registration.UserRegistration
+@{
+    ViewBag.Title = "PeopleAndFun | Will helps find new friends in your life!";
+}
+
+<div class="container">
+    <div class="col-lg-8">
+        <img alt="PeopleAndFun" src="~/Content/Images/t1.jpg" runat="server" class="img-responsive img-rounded" />
+
+        <h3 class="alert-info alert" style="padding:15px;">@DatingApp.Resources.ViewsResources.Home.Home_Index.Main</h3>        
+
+        <div style="border-top:dotted 2px #d5d5d5; padding-top:20px">
+
+            <strong style="color:#336699" class="">Zmenki in spoznavanje</strong>
+            <hr />
+            <div class="alert-success alert">
+                
+                    Se vam zdi iskanje preko interneta težko? Vgrajene imamo načine, kako pripraviti ljudi do tega, da vam bo jezik kar najhitreje stekel.
+                    Kako? Večkrat objavite kaj zanimivega ste počeli čez dan in kmalu se vam lahko oglasijo istomisleče osebe.
+                
+            </div>
+            <div class="alert-success alert">
+                Ste izbirčni? V življenju morate vedeti kaj si želite. Širok nabor lastnosti vam in čimboljše iskanje
+                vam pomagajo najti res tisto osebo, ki jo iščete.
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 alert-info alert">
+        @{Html.RenderPartial("Register");}
+    </div>
+</div>
+    <script>
+        var d = document.getElementById("liHome");
+        d.className += " active";
+
+    </script>
+
+
+
+    

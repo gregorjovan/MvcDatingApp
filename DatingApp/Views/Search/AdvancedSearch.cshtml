@@ -1,0 +1,142 @@
+﻿@using DatingApp.Models.Extensions.HtmlExtensions
+@using DatingApp.Resources.Labels
+@model DatingApp.Models.Search.AdvancedSearch
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-4">
+        @{Html.RenderPartial("searchnavigation");}
+    </div>
+    <div class="col-lg-8">
+        <h2 class="alert-success alert">Advanced search</h2>
+        @{Html.BeginForm("results", "search", FormMethod.Get, new { id = "frmSearch", @class = "form-horizontal" }); }
+        <input type="hidden" name="page" id="hdfPage" value="1" />
+
+        <div class="form-group">
+            <label id="lblSex" class="col-lg-4 control-label">@Labels.Sex@Html.ValidationMessage("sex", "*")</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("sex", Model.Sex, "selectL", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Labels.SeekSex</label>@Html.ValidationMessage("seeksex", "")
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("seeksex", Model.SeekSex, "selectL", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Labels.Age</label>@Html.ValidationMessage("seeksex", "")
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.ddlAgeMin) @MvcHtmlString.Create(@Labels.AgeTo)@MvcHtmlString.Create(DatingHtml.ddlAgeMax)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Labels.RelationshipFor</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("relationship", Model.Relationship, "selectL", true))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Labels.Horoscope </label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("sign", Model.Sign, "selectL", true))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Properties.Ethnicity </label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("ethnicity", Model.Ethnicity, "selectL", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Labels.From</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("country", Model.Country, "selectL", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Labels.DisplayType</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(StaticHtml.DisplayTypeDropDownList("display", (int)Model.display, "selectM"))
+                <br />
+                @MvcHtmlString.Create(StaticHtml.FilterByDropDownList("photofilter", (int)Model.photofilter, "selectM"))
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Labels.Sorting</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(StaticHtml.SortByDropDownList("sortby", (int)Model.sortby, "selectM"))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Properties.Smoking</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("smoking", Model.Smoking, "selectL", false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Properties.Alcohol</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.RadioButtonList("drinking", 2, Model.Alcohol, false))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Properties.Height</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("height", Model.Height, "selectM", false))
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Properties.Religion</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.RadioButtonList("religion", 2, Model.Religion, false))
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Properties.Hobbies</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("hobbies", Model.Hobbies, "selectL", true, true))
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">@Properties.Education</label>
+            <div class="col-lg-8">
+                @MvcHtmlString.Create(DatingHtml.DropDownList("education", Model.Education, "selectL", false))
+            </div>
+        </div>
+
+        <div class="container"><input class="btn btn-block btn-success" type="submit" value="@Labels.GoSearching" /></div>
+        <div class="container">@Html.ValidationSummary()</div>
+        @{Html.EndForm();}
+    </div>
+</div>
+
+
+
+        <script>
+            var d = document.getElementById("liSearch");
+            d.className += " active";
+            d = document.getElementById("navAdvanced");
+            d.className += " active";
+        </script>
+
